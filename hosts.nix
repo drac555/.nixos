@@ -25,8 +25,6 @@ let
 
         ./hosts/${hostName}
 
-        ./base.nix
-
         ./nixos/common
 
     ];

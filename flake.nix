@@ -23,12 +23,15 @@
     user = "evie";
 
     systems = {
-        evie = {
+        	nixos-btw-laptop = {
             #xtraImports = [
             #nputs.nixos-hardware.nixosModules.
            #]
-        };
-        };
+        	};
+		nixos-btw = {
+
+		};
+	};
     mkSystem = host: system:
         import ./hosts.nix (commonInherits
             // {

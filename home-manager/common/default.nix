@@ -8,11 +8,15 @@
   home = {
     username = user;
     homeDirectory = "/home/${user}";
-    stateVersion = "25.11";
+    stateVersion = "26.1";
   };
 
   # User packages
   home.packages = with pkgs; [
+    prismlauncher
+    hyfetch
+    yazi
+    
     # Add common user packages here
   ];
 

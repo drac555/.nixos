@@ -1,37 +1,54 @@
 { config, lib, pkgs, user, ... }:
 
-{
-  # Common configuration shared across all systems
-  # Can rely on flake inputs and external modules
 
-  # Define your primary user
+{
+  imports = [
+    ./steam.nix
+  ];
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+    
+  };
+
+  networking.networkmanager = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
   users.users.${user} = {
     isNormalUser = true;
     description = user;
     extraGroups = [ "networkmanager" "wheel" ];
-    # Set your shell
     shell = pkgs.bash;
   };
 
-  # System packages available on all systems
   environment.systemPackages = with pkgs; [
-    vim
+    killall
     wget
+    gcc
     curl
     git
-    htop
+    btop
     (python3.withPackages (p: [
         p.dbus-python
     ]))
   ];
 
-  # Enable sudo for wheel group
   security.sudo.wheelNeedsPassword = false;
 
+   services.xserver.enable = true;
+	services.displayManager.sddm.enable = true;
+	services.displayManager.sddm.wayland.enable = true;
+	services.desktopManager.plasma6.enable = true; 
+
   # SSH configuration (optional)
-  # services.openssh = {
-  #   enable = true;
-  #   settings.PermitRootLogin = "no";
-  #   settings.PasswordAuthentication = false;
-  # };
+  services.openssh = {
+  enable = true;
+  settings.PermitRootLogin = "no";
+  settings.PasswordAuthentication = false;
+  };
+
+  system.stateVersion = "26.1";
 }
