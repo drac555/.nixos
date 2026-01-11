@@ -17,7 +17,6 @@
     
     hyfetch
     yazi
-    vencord
     mpv
     ashell
     grimblast
@@ -38,9 +37,15 @@
     shellAliases = {
       ll = "ls -la";
       ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch --flake .#evie";
+      rebuild = "sudo nixos-rebuild switch --flake -- \"$1\"";
     };
   };
+
+  programs.vesktop = {
+    enable = true;
+  };
+
+
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;
