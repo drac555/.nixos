@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    (prismlauncher.overide {
+    (prismlauncher.override {
       jdks = [
         zulu25
       ];
