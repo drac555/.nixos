@@ -9,6 +9,9 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+    };
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let

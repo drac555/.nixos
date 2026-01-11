@@ -5,12 +5,19 @@
   imports = [
     ../modules
     ./prismlauncher.nix
+    ./yazi.nix
+	./Hyprland
+    ./stylix.nix
+
   ];
   home = {
     username = user;
     homeDirectory = "/home/${user}";
     stateVersion = "25.11";
   };
+  home.sessionVariables = {
+	EDITOR = "nvim";
+	};
 
   # User packages
   home.packages = with pkgs; [
@@ -37,13 +44,14 @@
     shellAliases = {
       ll = "ls -la";
       ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch --flake -- \"$1\"";
+      rebuild = "f() {sudo nixos-rebuild switch --flake \"$1\"; }; f";
     };
   };
 
   programs.vesktop = {
     enable = true;
   };
+
 
 
 

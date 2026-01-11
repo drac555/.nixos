@@ -1,9 +1,11 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, inputs,  user, ... }:
 
 
 {
   imports = [
     ./steam.nix
+    ./hyprland.nix
+	./Stylix
   ];
   boot = {
     loader.systemd-boot.enable = true;
@@ -13,11 +15,6 @@
     
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   networking.networkmanager.enable = true;
 
@@ -44,14 +41,12 @@
     ]))
   ];
 
+	environment.variables = {
+	EDITOR = "nvim";	
+	};
+
   security.sudo.wheelNeedsPassword = false;
-
-   services.xserver.enable = true;
-	services.displayManager.sddm.enable = true;
-	services.displayManager.sddm.wayland.enable = true;
-	services.desktopManager.plasma6.enable = true; 
-
-  # SSH configuration (optional)
+   # SSH configuration (optionali)
   services.openssh = {
   enable = true;
   settings.PermitRootLogin = "no";
@@ -72,7 +67,13 @@
 	};
 
 	fonts.fontconfig.enable = true;
-
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
 
   system.stateVersion = "25.11";

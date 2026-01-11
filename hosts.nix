@@ -13,20 +13,18 @@ let
         {
             networking.hostName = hostName;
             nix.settings.experimental-features = ["nix-command" "flakes"];
-
-            nixpkgs.overlays = [
-        (final: prev: {
-      nur = import inputs.nur {
-        nurpkgs = prev;
-        pkgs = prev;
+            
+            nixpkgs = {
+              config = { allowBroken = true; allowUnfree = true; };
+              overlays = import ./overlays { inherit inputs; };
       };
-    })
-      ];
-        }
-
+    }
+    
+        ./nixos/common
+        
         ./hosts/${hostName}
 
-        ./nixos/common
+        inputs.stylix.nixosModules.stylix
 
     ];
 
@@ -46,8 +44,11 @@ let
 
                 home-manager.useUserPackages = true;
                 home-manager.useGlobalPkgs = true;
+                home-manager.backupFileExtension = "backup";
                 home-manager.users.${user}.imports = [
                     ./home-manager/common
+                    ./hosts/${hostName}/home.nix
+                    
                 ];
                 }
             ];
