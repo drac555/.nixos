@@ -4,18 +4,23 @@
   # Common home-manager configuration for all users/systems
   imports = [
     ../modules
+    ./prismlauncher.nix
   ];
   home = {
     username = user;
     homeDirectory = "/home/${user}";
-    stateVersion = "26.1";
+    stateVersion = "25.11";
   };
 
   # User packages
   home.packages = with pkgs; [
-    prismlauncher
+    
     hyfetch
     yazi
+    vencord
+    mpv
+    ashell
+    grimblast
     
     # Add common user packages here
   ];

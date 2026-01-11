@@ -21,16 +21,19 @@
         };
 
     user = "evie";
-
+    #per-system home-manager modules go here >.<
     systems = {
         	nixos-btw-laptop = {
-            #xtraImports = [
-            #nputs.nixos-hardware.nixosModules.
-           #]
-        	};
-		nixos-btw = {
+        homeModules = [
 
-		};
+        ];
+        	};
+		      nixos-btw = {
+        homeModules = [
+
+        ];
+
+		      };
 	};
     mkSystem = host: system:
         import ./hosts.nix (commonInherits

@@ -13,7 +13,15 @@
     
   };
 
-  networking.networkmanager = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "America/Indiana/Vincennes";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -50,5 +58,22 @@
   settings.PasswordAuthentication = false;
   };
 
-  system.stateVersion = "26.1";
+  	fonts.packages = with pkgs; [
+		noto-fonts
+		noto-fonts-cjk-sans
+		noto-fonts-color-emoji
+		terminus_font
+	];
+
+	fonts.fontconfig.defaultFonts = {
+		sansSerif = [ "Terminus" ];
+		serif = [ "Terminus" ];
+		monospace = ["Terminus" ];
+	};
+
+	fonts.fontconfig.enable = true;
+
+
+
+  system.stateVersion = "25.11";
 }
