@@ -6,6 +6,7 @@
     ./steam.nix
     ./hyprland.nix
 	./Stylix
+    ./prism.nix
   ];
   boot = {
     loader.systemd-boot.enable = true;
@@ -35,6 +36,7 @@
     gcc
     curl
     git
+    pulseaudio
     btop
     (python3.withPackages (p: [
         p.dbus-python
@@ -53,6 +55,18 @@
   settings.PasswordAuthentication = false;
   };
 
+  services.colord.enable = true;
+
+ security.rtkit.enable = true;
+services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+}; 
+
   	fonts.packages = with pkgs; [
 		noto-fonts
 		noto-fonts-cjk-sans
@@ -67,14 +81,7 @@
 	};
 
 	fonts.fontconfig.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
-
+  
   system.stateVersion = "25.11";
 }

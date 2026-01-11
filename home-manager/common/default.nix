@@ -4,7 +4,6 @@
   # Common home-manager configuration for all users/systems
   imports = [
     ../modules
-    ./prismlauncher.nix
     ./yazi.nix
 	./Hyprland
     ./stylix.nix

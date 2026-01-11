@@ -3,10 +3,12 @@
   programs.yazi = {
     enable = true;
     settings = {
-      manager = {
-        show_hidden = true;
+      sort_by = "natural";
+      sort_sensitive = true;
+      linemode = "none";
+      show_hidden = true;
+      show_symlink = true;
+  };
+  };
 
-  };
-  };
-  };
 }
