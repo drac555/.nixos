@@ -30,7 +30,7 @@ let
 
     mkHost = hostName: user:
         nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            stdenv.hostPlatform.system = "x86_64-linux";
 
             modules = commonNixOSModules hostName "x86_64-linux"
             ++ [
