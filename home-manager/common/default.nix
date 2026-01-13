@@ -4,9 +4,12 @@
   # Common home-manager configuration for all users/systems
   imports = [
     ../modules
+
+
     ./yazi.nix
-	./Hyprland
+	  ./Hyprland
     ./stylix.nix
+    ./noctalia.nix
 
   ];
   home = {
@@ -53,6 +56,10 @@
 
   programs.vesktop = {
     enable = true;
+  };
+
+  programs = {
+    kitty.enable = true;
   };
 
 

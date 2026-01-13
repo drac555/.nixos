@@ -46,6 +46,7 @@ let
                 home-manager.useGlobalPkgs = true;
                 home-manager.backupFileExtension = "backup";
                 home-manager.users.${user}.imports = [
+                    inputs.noctalia.homeModules.default
                     ./home-manager/common
                     ./hosts/${hostName}/home.nix
                     
