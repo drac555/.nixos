@@ -9,9 +9,12 @@
 
   # Add any laptop-specific packages
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
     # Add more packages here
   ];
+
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   # Laptop-specific services
   # services.logind.lidSwitch = "suspend";

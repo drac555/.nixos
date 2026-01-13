@@ -57,8 +57,8 @@
 
   services.colord.enable = true;
 
- security.rtkit.enable = true;
-services.pipewire = {
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -67,21 +67,25 @@ services.pipewire = {
     #jack.enable = true;
 }; 
 
-  	fonts.packages = with pkgs; [
-		noto-fonts
-		noto-fonts-cjk-sans
-		noto-fonts-color-emoji
-		terminus_font
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      terminus_font
+      terminus_font_ttf
 	];
 
-	fonts.fontconfig.defaultFonts = {
-		sansSerif = [ "Terminus" ];
-		serif = [ "Terminus" ];
-		monospace = ["Terminus" ];
+	fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [ "Terminus" ];
+      serif = [ "Terminus" ];
+      monospace = ["Terminus" ];
 	};
 
-	fonts.fontconfig.enable = true;
-
+    };
+  };
   
   system.stateVersion = "25.11";
 }

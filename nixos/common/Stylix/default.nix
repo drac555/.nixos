@@ -15,16 +15,16 @@
     
     fonts = {
         sansSerif = {
-          package = pkgs.terminus_font;
-          name = "Terminus";
+          package = pkgs.terminus_font_ttf;
+          name = "Terminus (TTF)";
         };
         serif = {
-          package = pkgs.terminus_font;
-          name = "Terminus";
+          package = pkgs.terminus_font_ttf;
+          name = "Terminus (TTF)";
         };
         monospace = {
-          package = pkgs.terminus_font;
-          name = "Terminus";
+          package = pkgs.terminus_font_ttf;
+          name = "Terminus (TTF)";
         };
       };
 

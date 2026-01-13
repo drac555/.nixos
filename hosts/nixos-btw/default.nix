@@ -9,7 +9,7 @@
 
   # Add any laptop-specific packages
   environment.systemPackages = with pkgs; [
-    inputs.nixvim.packages.${system}.default
+    inputs.nixvim.packages.${stdenv.hostPlatform.system}.default
     # Add more packages here
   ];
 
