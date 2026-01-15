@@ -19,9 +19,10 @@
 
   networking.networkmanager.enable = true;
 
-  time.timeZone = "America/Indiana/Vincennes";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  location.provider = "geoclue2";
+
 
   users.users.${user} = {
     isNormalUser = true;
@@ -56,6 +57,9 @@
   };
 
   services.colord.enable = true;
+
+  services.geoclue2.enable = true;
+  services.localtimed.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

@@ -5,7 +5,7 @@
     systemd.enable = true;
     settings = {
       location = {
-        name = "Decatur, Alabama";
+        name = "Huntsville, Alabama";
         useFahrenheit = true;
         use12hourFormat = true;
       };
