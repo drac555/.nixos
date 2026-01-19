@@ -49,6 +49,12 @@
 	};
 
   security.sudo.wheelNeedsPassword = false;
+
+  services.tailscale.enable = true;
+  networking.firewall = {
+    trustedInterfaces = [ "tailscale0 "];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
    # SSH configuration (optionali)
   services.openssh = {
   enable = true;

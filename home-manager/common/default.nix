@@ -29,6 +29,7 @@
     mpv
     ashell
     grimblast
+    neovim
     
     # Add common user packages here
   ];
