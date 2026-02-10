@@ -5,14 +5,20 @@
     hostName,
     user,
     homeModules ? [],
+    systemModules ? [],
     ...
 }:
 
 let
-    commonNixOSModules = hostName: systemType: [
+    commonNixOSModules = hostName: systemType: user: [
         {
             networking.hostName = hostName;
-            nix.settings.experimental-features = ["nix-command" "flakes"];
+
+            nix.settings = {
+	    	trusted-users = [ "evie" ];
+		experimental-features = [ "nix-command" "flakes" ];
+		};
+			
             
             nixpkgs = {
               config = { allowBroken = true; allowUnfree = true; };
@@ -26,13 +32,13 @@ let
 
         inputs.stylix.nixosModules.stylix
 
-    ];
+    ] ++ systemModules;
 
     mkHost = hostName: user:
         nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
 
-            modules = commonNixOSModules hostName "x86_64-linux"
+            modules = commonNixOSModules hostName "x86_64-linux" user
             ++ [
             home-manager.nixosModules.home-manager
             {
@@ -50,7 +56,7 @@ let
                     ./home-manager/common
                     ./hosts/${hostName}/home.nix
                     
-                ];
+                ] ++ homeModules;
                 }
             ];
         specialArgs = {
