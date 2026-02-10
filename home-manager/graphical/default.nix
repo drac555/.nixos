@@ -1,7 +1,8 @@
 { pkgs, ...}:
 {
 	imports = [
-		./prism.nix
+		./firefox.nix
+
 	];
 
 }

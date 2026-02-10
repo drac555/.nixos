@@ -40,12 +40,17 @@
         };
 
     user = "evie";
-    #per-system home-manager modules go here >.<
+    #per-system modules go here >.<
     systems = {
         	nixos-btw-laptop = {
         homeModules = [
+		./home-manager/graphical
 
         ];
+	systemModules = [
+		./nixos/graphical/niri
+
+	];
         	};
 		      nixos-btw = {
         homeModules = [

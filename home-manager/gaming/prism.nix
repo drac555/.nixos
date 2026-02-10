@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.homePackages = with pkgs; [
     (prismlauncher.override {
       jdks = [
         jdk8
@@ -8,7 +8,6 @@
         jdk21
         jdk25
       ];
-      additionalPrograms = [ pulseaudio ];
     })
   ];
 }

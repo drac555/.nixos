@@ -3,13 +3,12 @@
 {
   # Common home-manager configuration for all users/systems
   imports = [
-    ../modules
 
 
     ./yazi.nix
-	  ./Hyprland
     ./stylix.nix
     ./noctalia.nix
+    ./neovim.nix
 
   ];
   home = {
@@ -29,7 +28,6 @@
     mpv
     ashell
     grimblast
-    neovim
     
     # Add common user packages here
   ];
