@@ -7,7 +7,6 @@
 
     ./yazi.nix
     ./stylix.nix
-    ./noctalia.nix
     ./neovim.nix
 
   ];

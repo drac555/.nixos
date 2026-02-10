@@ -3,10 +3,7 @@
 
 {
   imports = [
-    ./steam.nix
-    ./hyprland.nix
 	./Stylix
-    ./prism.nix
   ];
   boot = {
     loader.systemd-boot.enable = true;
