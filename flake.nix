@@ -25,6 +25,9 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+    	url = "github:sodiboo/niri-flake";
+	};
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let
