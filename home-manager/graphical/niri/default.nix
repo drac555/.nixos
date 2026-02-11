@@ -1,21 +1,45 @@
-{ pkgs, ...}:
 {
-	imports = [
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
-	];
+{
+  imports = [
+    ./keybindings.nix
+  ];
 
-	xdg.configFile."niri/config.kdl".source = ./conf/config.kdl;
+  programs.fuzzel.enable = true;
 
-	home.packages = with pkgs; [
-		alacritty
-		
-		waybar
+  programs.niri = {
+    settings = {
+      spawn-at-startup = [
+        { argv = [ "waybar" ]; }
+      ];
+      layout = {
+        focus-ring = {
+          enable = true;
+          width = 4;
+        };
+        border = {
+          enable = true;
+          width = 2;
+        };
+      };
+    };
+  };
 
-		fuzzel
+  home.packages = with pkgs; [
+    alacritty
 
-		swaylock
+    waybar
 
-		orca
-	];
+    fuzzel
+
+    swaylock
+
+    orca
+  ];
 
 }

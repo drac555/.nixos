@@ -6,6 +6,8 @@
 
 
     ./yazi.nix
+    ./Stylix
+    ./helix.nix
 
   ];
   home = {
@@ -13,9 +15,6 @@
     homeDirectory = "/home/${user}";
     stateVersion = "25.11";
   };
-  home.sessionVariables = {
-	EDITOR = "nvim";
-	};
 
   # User packages
   home.packages = with pkgs; [
@@ -56,7 +55,6 @@
 
   programs = {
     kitty.enable = true;
-	neovim.enable = true;
   };
 
 

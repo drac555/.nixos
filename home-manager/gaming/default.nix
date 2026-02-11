@@ -4,4 +4,8 @@
 		./prism.nix
 	];
 
+	home.packages = with pkgs; [
+		ckan
+		];
+
 }
