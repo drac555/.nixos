@@ -7,7 +7,7 @@
     };
   })
 
-  inputs.niri.overlays.niri;
+  inputs.niri-flake.overlays.niri
 
 ]
 
