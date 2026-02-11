@@ -32,6 +32,7 @@ let
 
 
 	inputs.niri-flake.nixosModules.niri
+	inputs.stylix.nixosModules.stylix
 
     ] ++ systemModules;
 
@@ -55,7 +56,6 @@ let
                 home-manager.users.${user}.imports = [
 		  #  inputs.niri-flake.homeModules.niri
 
-                    inputs.noctalia.homeModules.default
 
                     ./home-manager/common
 

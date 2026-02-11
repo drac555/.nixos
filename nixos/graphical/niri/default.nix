@@ -13,6 +13,7 @@
 		gamescope
 		wayland-utils
 		wl-clipboard
+		xwayland-satellite
 
 
 	];

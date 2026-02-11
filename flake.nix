@@ -65,6 +65,7 @@
         ];
 	systemModules = [
 		./nixos/graphical
+		./nixos/gaming
 	];
 
 		      };
