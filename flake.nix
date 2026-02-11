@@ -49,7 +49,6 @@
         	nixos-btw-laptop = {
         homeModules = [
 		./home-manager/graphical
-		./home-manager/graphical/niri
 		./home-manager/gaming
 
         ];
@@ -60,8 +59,13 @@
         	};
 		      nixos-btw = {
         homeModules = [
+		./home-manager/graphical
+		./home-manager/gaming
 
         ];
+	systemModules = [
+		./nixos/graphical
+	];
 
 		      };
 	};
