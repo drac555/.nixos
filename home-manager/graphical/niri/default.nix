@@ -3,11 +3,8 @@
 	imports = [
 
 	];
-	programs.niri = {
-		enable = true;
 
-		xdg.configFile."niri/conf/config.kdl".source = ./config.kdl;
-		};
+	xdg.configFile."niri/config.kdl".source = ./conf/config.kdl;
 
 	home.packages = with pkgs; [
 		alacritty
@@ -19,5 +16,6 @@
 		swaylock
 
 		orca
+	];
 
 }

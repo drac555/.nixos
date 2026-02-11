@@ -30,7 +30,8 @@ let
         
         ./hosts/${hostName}
 
-        inputs.stylix.nixosModules.stylix
+
+	inputs.niri-flake.nixosModules.niri
 
     ] ++ systemModules;
 
@@ -52,8 +53,12 @@ let
                 home-manager.useGlobalPkgs = true;
                 home-manager.backupFileExtension = "backup";
                 home-manager.users.${user}.imports = [
+		  #  inputs.niri-flake.homeModules.niri
+
                     inputs.noctalia.homeModules.default
+
                     ./home-manager/common
+
                     ./hosts/${hostName}/home.nix
                     
                 ] ++ homeModules;

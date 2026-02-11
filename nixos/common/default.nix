@@ -3,7 +3,6 @@
 
 {
   imports = [
-	./Stylix
   ];
   boot = {
     loader.systemd-boot.enable = true;

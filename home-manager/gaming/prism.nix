@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  environment.homePackages = with pkgs; [
+  home.packages = with pkgs; [
     (prismlauncher.override {
       jdks = [
         jdk8

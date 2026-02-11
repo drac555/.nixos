@@ -6,8 +6,6 @@
 
 
     ./yazi.nix
-    ./stylix.nix
-    ./neovim.nix
 
   ];
   home = {
@@ -58,6 +56,7 @@
 
   programs = {
     kitty.enable = true;
+	neovim.enable = true;
   };
 
 
