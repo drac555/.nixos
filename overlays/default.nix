@@ -7,5 +7,7 @@
     };
   })
 
+  inputs.niri.overlays.niri;
+
 ]
 
