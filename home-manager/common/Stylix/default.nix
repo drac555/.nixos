@@ -7,5 +7,6 @@
       colorTheme.enable = true;
     };
     targets.niri.enable = true;
+    image = ./resources/ohhmygsoh.jpg;
   };
 }

@@ -3,12 +3,13 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/macintosh.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool.yaml";
     polarity = "dark";
 
     cursor = {
-      package = pkgs.apple-cursor;
-      name = "Apple-Cursor";
+      package = pkgs.capitaine-cursors;
+      name = "capitaine-cursors";
+      size = 24;
     };
 
     image = ./resources/ohhmygsoh.jpg;

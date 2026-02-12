@@ -47,6 +47,7 @@
           format-linked = "{ifname} (No IP) ";
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
+          on-click = "nmtui";
         };
         "wireplumber" = {
           format = "{volume}% {icon} {format_source}";
