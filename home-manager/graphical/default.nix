@@ -1,10 +1,10 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-	imports = [
-		./firefox.nix
-		./waybar
-		./niri
-
-	];
+  imports = [
+    ./firefox.nix
+    ./waybar
+    ./niri
+    ./awww
+  ];
 
 }

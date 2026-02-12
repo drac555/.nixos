@@ -12,7 +12,8 @@
     ./yazi.nix
     ./Stylix
     ./helix.nix
-
+    ./btop.nix
+    ./zsh.nix
   ];
   home = {
     username = user;

@@ -3,7 +3,7 @@
   stylix = {
     enable = true;
     autoEnable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-sulphurpool.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/macintosh.yaml";
     polarity = "dark";
 
     cursor = {
