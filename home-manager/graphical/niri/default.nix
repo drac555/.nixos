@@ -18,10 +18,8 @@
 
       environment."NIXOS_OZONE_WL" = "1";
 
-      spawn-at-startup = [
-        { argv = [ "waybar" ]; }
-      ];
       layout = {
+
         border = {
           enable = true;
           width = 2;
