@@ -1,9 +1,13 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 {
   # Common home-manager configuration for all users/systems
   imports = [
-
 
     ./yazi.nix
     ./Stylix
@@ -18,13 +22,13 @@
 
   # User packages
   home.packages = with pkgs; [
-    
+
     hyfetch
     yazi
     mpv
     ashell
     grimblast
-    
+
     # Add common user packages here
   ];
 
@@ -52,13 +56,6 @@
   programs.vesktop = {
     enable = true;
   };
-
-  programs = {
-    kitty.enable = true;
-  };
-
-
-
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;

@@ -11,35 +11,37 @@
   ];
 
   programs.fuzzel.enable = true;
+  programs.kitty.enable = true;
 
   programs.niri = {
     settings = {
+
+      environment."NIXOS_OZONE_WL" = "1";
+
       spawn-at-startup = [
         { argv = [ "waybar" ]; }
       ];
       layout = {
-        focus-ring = {
-          enable = true;
-          width = 4;
-        };
         border = {
           enable = true;
           width = 2;
         };
+        shadow = {
+          enable = false;
+          softness = 30;
+          spread = 5;
+
+        };
+      };
+      animations = {
+        enable = true;
+        slowdown = 3.0;
       };
     };
   };
 
   home.packages = with pkgs; [
-    alacritty
 
-    waybar
-
-    fuzzel
-
-    swaylock
-
-    orca
   ];
 
 }

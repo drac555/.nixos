@@ -1,21 +1,17 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-	imports = [
+  imports = [
 
-	];
-	programs.niri = {
-		enable = true;
-		package = pkgs.niri-unstable;
-	};
+  ];
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
 
-	environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 
-		gamescope
-		wayland-utils
-		wl-clipboard
-		xwayland-satellite
+    xwayland-satellite
 
-
-	];
+  ];
 
 }
