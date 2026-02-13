@@ -1,30 +1,37 @@
-{ config, lib, pkgs, inputs,  user, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  user,
+  ...
+}:
 
 {
   imports = [
-  	./Stylix
+    ./Stylix
+    ./zsh.nix
   ];
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
     kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
-    
+
   };
 
-
   networking.networkmanager.enable = true;
-
 
   i18n.defaultLocale = "en_US.UTF-8";
   location.provider = "geoclue2";
 
-
   users.users.${user} = {
     isNormalUser = true;
     description = user;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.bash;
   };
 
@@ -37,26 +44,26 @@
     pulseaudio
     btop
     (python3.withPackages (p: [
-        p.dbus-python
+      p.dbus-python
     ]))
   ];
 
-	environment.variables = {
-	EDITOR = "nvim";	
-	};
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
   services.tailscale.enable = true;
   networking.firewall = {
-    trustedInterfaces = [ "tailscale0 "];
+    trustedInterfaces = [ "tailscale0 " ];
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
-   # SSH configuration (optionali)
+  # SSH configuration (optionali)
   services.openssh = {
-  enable = true;
-  settings.PermitRootLogin = "no";
-  settings.PasswordAuthentication = false;
+    enable = true;
+    settings.PermitRootLogin = "no";
+    settings.PasswordAuthentication = false;
   };
 
   services.colord.enable = true;
@@ -72,7 +79,7 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-}; 
+  };
 
   fonts = {
     packages = with pkgs; [
@@ -81,18 +88,18 @@
       noto-fonts-color-emoji
       terminus_font
       terminus_font_ttf
-	];
+    ];
 
-	fontconfig = {
-    enable = true;
-    defaultFonts = {
-      sansSerif = [ "Terminus" ];
-      serif = [ "Terminus" ];
-      monospace = ["Terminus" ];
-	};
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        sansSerif = [ "Terminus" ];
+        serif = [ "Terminus" ];
+        monospace = [ "Terminus" ];
+      };
 
     };
   };
-  
+
   system.stateVersion = "25.11";
 }
