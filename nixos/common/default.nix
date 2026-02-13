@@ -11,6 +11,7 @@
   imports = [
     ./Stylix
     ./zsh.nix
+    ./gamescope.nix
   ];
   boot = {
     loader.systemd-boot.enable = true;
@@ -40,17 +41,14 @@
     wget
     gcc
     curl
-    git
-    pulseaudio
+    helix
+    unzip
+    ripgrep
     btop
     (python3.withPackages (p: [
       p.dbus-python
     ]))
   ];
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -77,10 +75,17 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
   };
 
+  services = {
+    fail2ban.enable = true;
+
+  };
+  programs = {
+    gamescope.enable = true;
+
+  };
   fonts = {
     packages = with pkgs; [
       noto-fonts
