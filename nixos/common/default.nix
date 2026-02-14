@@ -11,7 +11,6 @@
   imports = [
     ./Stylix
     ./zsh.nix
-    ./gamescope.nix
   ];
   boot = {
     loader.systemd-boot.enable = true;
@@ -33,7 +32,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [

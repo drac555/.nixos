@@ -26,5 +26,9 @@
     nixd
     clang
     clang-tools
+    lldb
+    cmake
+    cmake-format
+    cmake-language-server
   ];
 }
