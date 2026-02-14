@@ -30,5 +30,9 @@
     cmake
     cmake-format
     cmake-language-server
+    sdl3
+    sdl3-image
+    sdl3-ttf
+    sdl3-shadercross
   ];
 }

@@ -43,6 +43,10 @@
     helix
     unzip
     ripgrep
+    sdl3
+    sdl3-image
+    sdl3-shadercross
+    sdl3-ttf
     btop
     (python3.withPackages (p: [
       p.dbus-python
