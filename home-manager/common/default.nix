@@ -14,6 +14,7 @@
     ./helix.nix
     ./btop.nix
     ./zsh.nix
+    ./clion.nix
   ];
   home = {
     username = user;
