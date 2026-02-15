@@ -2,8 +2,7 @@
 {
   imports = [
     ./steam.nix
+    ./gamemode.nix
   ];
-
-  programs.gamemode.enable = true;
 
 }
