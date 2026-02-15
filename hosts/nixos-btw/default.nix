@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -12,25 +18,25 @@
     # Add more packages here
   ];
 
-  	hardware.graphics.enable = true;
-	services.xserver.videoDrivers = ["nvidia"];
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
-	hardware.nvidia = {
-		modesetting.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
 
-		powerManagement.enable = false;
-		powerManagement.finegrained = false;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
 
-		open = false;
+    open = false;
 
-		nvidiaSettings = true;
-		package = config.boot.kernelPackages.nvidiaPackages.beta;
-	};
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
 
-	fileSystems."/mnt/driveone" = {
-		device = "/dev/disk/by-uuid/fe664b1c-b116-4bb5-98ed-a05f1cf67f7b";
-		fsType = "btrfs";
-	};
+  fileSystems."/mnt/driveone" = {
+    device = "/dev/disk/by-uuid/fe664b1c-b116-4bb5-98ed-a05f1cf67f7b";
+    fsType = "btrfs";
+  };
 
-
- }
+}

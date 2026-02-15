@@ -85,10 +85,7 @@
     fail2ban.enable = true;
 
   };
-  programs = {
-    gamescope.enable = true;
 
-  };
   fonts = {
     packages = with pkgs; [
       noto-fonts
