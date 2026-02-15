@@ -8,9 +8,5 @@
       };
     };
   };
-  users.user.${user} = {
-    extraGroups = [
-      "gamemode"
-    ];
-  };
+  users.users.${user}.extraGroups = [ "gamemode" ];
 }
