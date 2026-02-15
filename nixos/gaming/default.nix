@@ -1,7 +1,9 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-	imports = [
-		./steam.nix
-	];
+  imports = [
+    ./steam.nix
+  ];
+
+  programs.gamemode.enable = true;
 
 }
