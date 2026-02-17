@@ -76,11 +76,13 @@
           homeModules = [
             ./home-manager/graphical
             ./home-manager/gaming
+            ./home-manager/graphical/hyprland
 
           ];
           systemModules = [
             ./nixos/graphical
             ./nixos/gaming
+            ./nixos/graphical/hyprland
           ];
 
         };

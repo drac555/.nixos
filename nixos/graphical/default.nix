@@ -1,9 +1,10 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-	imports = [
+  imports = [
 
-	./niri
+    ./niri
+    ./sddm
 
-	];
+  ];
 
 }
