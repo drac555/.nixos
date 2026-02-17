@@ -83,6 +83,7 @@
             ./nixos/graphical
             ./nixos/gaming
             ./nixos/graphical/hyprland
+            ./hosts/nixos-btw/hypr-monitors.nix
           ];
 
         };

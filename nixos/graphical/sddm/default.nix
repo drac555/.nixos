@@ -9,12 +9,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.where-is-my-sddm-theme.override
-    {
-      themeConfig.General = {
-        font = "Terminus-TTF";
-        fontSize = "14";
-      };
-    }
+    pkgs.where-is-my-sddm-theme
+
   ];
 }
