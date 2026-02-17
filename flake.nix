@@ -77,13 +77,13 @@
             ./home-manager/graphical
             ./home-manager/gaming
             ./home-manager/graphical/hyprland
+            ./hosts/nixos-btw/hypr-monitors.nix
 
           ];
           systemModules = [
             ./nixos/graphical
             ./nixos/gaming
             ./nixos/graphical/hyprland
-            ./hosts/nixos-btw/hypr-monitors.nix
           ];
 
         };
