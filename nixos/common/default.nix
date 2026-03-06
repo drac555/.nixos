@@ -50,7 +50,13 @@
     btop
     (python3.withPackages (p: [
       p.dbus-python
+      p.scikit-learn
+      p.numpy
+      p.pandas
+      p.seaborn
+
     ]))
+    ty
   ];
 
   security.sudo.wheelNeedsPassword = false;

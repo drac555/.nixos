@@ -5,6 +5,7 @@
     ./waybar
     ./niri
     ./awww
+    ./krita
   ];
 
 }
