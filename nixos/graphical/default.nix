@@ -4,6 +4,7 @@
 
     ./niri
     ./sddm
+    ./krita
 
   ];
 
