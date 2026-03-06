@@ -11,27 +11,25 @@
     ./hardware-configuration.nix
   ];
 
-  # Host-specific configuration for evie-laptop
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
 
-  # Add any laptop-specific packages
-  environment.systemPackages = with pkgs; [
-    # Add more packages here
-  ];
-
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware.nvidia = {
     modesetting.enable = true;
 
     powerManagement.enable = false;
     powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
   };
 
   fileSystems."/mnt/driveone" = {
